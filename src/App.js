@@ -8,13 +8,14 @@ function App() {
     fetch('http://localhost:2100/users')
     .then(res=>res.json())
     .then(data=>setUser(data))
-  },[])
+  },[user])
 
   function handleSubmit(e){
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const user = {name, email};
+
     fetch('http://localhost:2100/user',{
       method : 'POST',
       headers : {
