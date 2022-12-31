@@ -9,9 +9,31 @@ function App() {
     .then(res=>res.json())
     .then(data=>setPlayers(data))
   },[players])
+
+  function handleSubmit(e){
+    e.preventDefault();
+    let name = e.target.name.value;
+    let email = e.target.email.value;
+    let user = {name, email};
+
+    fetch('http://localhost:3200/user' , {
+      method : 'POST',
+      headers : 'content-type : application/json',
+      body : JSON.stringify(user)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      let 
+    })
+  }
   return (
     <div className="App">
       <h2>User Found : {players.length} </h2>
+      <form action="" onSubmit={handleSubmit}>
+        <input type="email" name="email" id="" />
+        <input type="text" name="name" id="" />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }
