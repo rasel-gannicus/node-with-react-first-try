@@ -18,7 +18,7 @@ const UpdateUser = () => {
         const user = {name, email};
 
         // send data to the server
-        fetch('http://localhost:5000/user',{
+        fetch(`http://localhost:5000/user/${id}`,{
             method : 'PUT',
             headers : {
                 'content-type' : 'application/json'
