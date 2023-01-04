@@ -1,42 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
+import { Route, Router, Routes } from 'react-router-dom';
+import AddUser from './Components/AddUser/AddUser';
+import Home from './Components/Home/Home';
 
 function App() {
-  const [players, setPlayers] = useState([]);
-  useEffect(() => {
-    fetch('http://localhost:5000/users')
-      .then(res => res.json())
-      .then(data => setPlayers(data))
-  }, [players]);
+  // const [players, setPlayers] = useState([]);
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/users')
+  //     .then(res => res.json())
+  //     .then(data => setPlayers(data))
+  // }, [players]);
 
-  function handleSubmit(e){
-    e.preventDefault();
-    let name = e.target.name.value;
-    let email = e.target.name.value;
-    let user = {name, email};
-    fetch('http://localhost:5000/user',{
-      method : 'POST',
-      headers : {'content-type' : 'application/json'},
-      body : JSON.stringify(user)
-    })
-    .then(res=>res.json())
-    .then(data=>{
-      let newUser = [...players, user];
-      setPlayers(newUser);
-    })
-  }
+  // function handleSubmit(e){
+  //   e.preventDefault();
+  //   let name = e.target.name.value;
+  //   let email = e.target.name.value;
+  //   let user = {name, email};
+  //   fetch('http://localhost:5000/user',{
+  //     method : 'POST',
+  //     headers : {'content-type' : 'application/json'},
+  //     body : JSON.stringify(user)
+  //   })
+  //   .then(res=>res.json())
+  //   .then(data=>{
+  //     let newUser = [...players, user];
+  //     setPlayers(newUser);
+  //   })
+  // }
   return (
     <div className="App">
-      <h2>Users Found : {players.length} </h2>
-      <form action="" onSubmit={handleSubmit}>
-        <input type="email" name="email" id="" />
-        <input type="text" name="name" id="" />
-        <button type="submit">Submit</button>
-      </form>
-      {
-        players.map(index=> <h3 index = {index} key={index.id}>{index.name}</h3> )
-      }
+      
+      <Routes>
+        <Route path='/' element={<Home></Home>} ></Route>
+        <Route path='/addUser' element={<AddUser></AddUser>} ></Route>
+      </Routes>
     </div>
   );
 }
