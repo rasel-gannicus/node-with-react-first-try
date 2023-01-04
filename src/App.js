@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Route, Router, Routes } from 'react-router-dom';
 import AddUser from './Components/AddUser/AddUser';
 import Home from './Components/Home/Home';
+import UpdateUser from './Components/UpdateUser/UpdateUser';
 
 function App() {
   // const [players, setPlayers] = useState([]);
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>} ></Route>
         <Route path='/addUser' element={<AddUser></AddUser>} ></Route>
+        <Route path='/updateUser' element={<UpdateUser></UpdateUser>}></Route>
       </Routes>
     </div>
   );
