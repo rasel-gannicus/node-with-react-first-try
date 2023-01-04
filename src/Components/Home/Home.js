@@ -9,7 +9,17 @@ const Home = () => {
   },[]);
 
   function deleteUser(id){
-    console.log(id);
+    const proceed = window.confirm('You sure you want to delete user ?');
+    if(proceed){
+      const url = `http://localhost:5000/user/${id}`;
+      fetch(url,{
+        method : 'DELETE'
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+      })
+    }
   }
     return (
         <div>
