@@ -19,7 +19,7 @@ const UpdateUser = () => {
 
         // send data to the server
         fetch('http://localhost:5000/user',{
-            method : 'POST',
+            method : 'PUT',
             headers : {
                 'content-type' : 'application/json'
             },
@@ -28,12 +28,12 @@ const UpdateUser = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log('success', data);
-            alert('user added successfully');
+            alert('User Updated successfully');
         })
     }
     return (
         <div>
-            <h2>Update User</h2>
+            <h2>Update User for : {users.name} </h2>
             <form action="" onSubmit={handleUpdate} >
                 <input type="email" name="email" id="" /> <br />
                 <input type="text" name="name" id="" /> <br />
