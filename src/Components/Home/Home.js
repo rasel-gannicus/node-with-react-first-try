@@ -17,7 +17,10 @@ const Home = () => {
       })
       .then(res=>res.json())
       .then(data=>{
-        console.log(data);
+        if(data.deletedCount>0){
+          const remaining = users.filter(index=> index._id != id);
+          setUsers(remaining);
+        }
       })
     }
   }
