@@ -10,7 +10,9 @@ const Home = () => {
     return (
         <div>
             <h2>User Found : {users.length} </h2>
-            
+            {
+              users.map(index=><h3 index={index} key={index._id}>{index.name}</h3>)
+            }
             
         </div>
     );
