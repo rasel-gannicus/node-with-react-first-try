@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SecondPhase = () => {
     const [users, setUsers] = useState([]);
@@ -25,7 +25,12 @@ const SecondPhase = () => {
                 }
             })
         }
-
+    }
+    
+    const navigate = useNavigate();
+    function updateUser(id){
+        const url = `/${id}`;
+        navigate(url);
     }
     return (
         <div>
@@ -34,6 +39,7 @@ const SecondPhase = () => {
             <h2>Total Users found till now : {users.length} </h2>
             {
                 users.map(index => <h2 index={index} key={index._id}> {index.name}
+                    <button onClick={()=>updateUser(index._id)}>Update User</button>
                     <button onClick={() => deleteUser(index._id)}>Delete</button>
                 </h2>)
             }
