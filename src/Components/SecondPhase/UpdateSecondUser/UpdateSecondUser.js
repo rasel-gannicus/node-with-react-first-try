@@ -4,11 +4,12 @@ import { useParams } from 'react-router';
 const UpdateSecondUser = () => {
     const {id} = useParams();
     const[users, setUsers] = useState([]);
+    const [dummy, setDummy] = useState('');
     useEffect(()=>{
         fetch(`http://localhost:5000/user/${id}`)
         .then(res=>res.json())
         .then(data=>setUsers(data))
-    },[]);
+    },[users, dummy]);
 
     function handleSubmit(e){
         e.preventDefault();
@@ -25,8 +26,8 @@ const UpdateSecondUser = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            setUsers(data);
             alert('user updated successfully');
+            setDummy('sdfs');
         })
     }
     return (
