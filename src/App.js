@@ -6,6 +6,7 @@ import AddUser from './Components/AddUser/AddUser';
 import Home from './Components/Home/Home';
 import UpdateUser from './Components/UpdateUser/UpdateUser';
 import Header from './Components/Header/Header';
+import SecondPhase from './Components/SecondPhase/SecondPhase';
 
 function App() {
   // const [players, setPlayers] = useState([]);
@@ -38,6 +39,7 @@ function App() {
         <Route path='/home' element={<Home></Home>} ></Route>
         <Route path='/addUser' element={<AddUser></AddUser>} ></Route>
         <Route path='/updateUser/:id' element={<UpdateUser></UpdateUser>}></Route>
+        <Route path='/secondTry' element={<SecondPhase></SecondPhase>}></Route>
       </Routes>
     </div>
   );
