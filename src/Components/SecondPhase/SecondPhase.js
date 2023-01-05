@@ -11,7 +11,7 @@ const SecondPhase = () => {
     },[])
 
     function deleteUser(id){
-        console.log(id);
+        
     }
     return (
         <div>
