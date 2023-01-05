@@ -29,7 +29,7 @@ const SecondPhase = () => {
     
     const navigate = useNavigate();
     function updateUser(id){
-        const url = `/${id}`;
+        const url = `/secondUser/${id}`;
         navigate(url);
     }
     return (
